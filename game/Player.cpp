@@ -3906,6 +3906,7 @@ void idPlayer::UpdateConditions( void ) {
 		pfl.strafeLeft	= pfl.onGround && ( sidespeed > 20.01f );
 		pfl.strafeRight	= pfl.onGround && ( sidespeed < -20.01f );
  	} else if ( xyspeed > MIN_BOB_SPEED ) {
+		//gameLocal.Printf("HERE!!!!");
 		pfl.forward		= pfl.onGround && ( usercmd.forwardmove > 0 );
 		pfl.backward	= pfl.onGround && ( usercmd.forwardmove < 0 );
 		pfl.strafeLeft	= pfl.onGround && ( usercmd.rightmove < 0 );
@@ -11371,6 +11372,7 @@ idPlayer::Event_GetMove
 */
 void idPlayer::Event_GetMove( void ) {
 	idVec3 move( usercmd.forwardmove, usercmd.rightmove, usercmd.upmove );
+	gameLocal.Printf("HERE!!!!");
 	idThread::ReturnVector( move );
 }
 

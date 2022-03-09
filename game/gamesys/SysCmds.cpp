@@ -26,7 +26,7 @@
 // RAVEN END
 
 #ifdef _WIN32
-#include "TypeInfo.h"
+#include "TypeInfo"
 #else
 #include "NoGameTypeInfo.h"
 #endif
@@ -171,7 +171,7 @@ void Cmd_ListSpawnArgs_f( const idCmdArgs &args ) {
 
 	for ( i = 0; i < ent->spawnArgs.GetNumKeyVals(); i++ ) {
 		const idKeyValue *kv = ent->spawnArgs.GetKeyVal( i );
-		gameLocal.Printf( "\"%s\"  "S_COLOR_WHITE"\"%s\"\n", kv->GetKey().c_str(), kv->GetValue().c_str() );
+		gameLocal.Printf( "\"%s\"  " S_COLOR_WHITE "\"%s\"\n", kv->GetKey().c_str(), kv->GetValue().c_str() );
 	}
 }
 
@@ -2923,11 +2923,11 @@ void Cmd_AddIcon_f( const idCmdArgs& args ) {
 // RITUAL BEGIN
 // squirrel: Mode-agnostic buymenus
 void Cmd_ToggleBuyMenu_f( const idCmdArgs& args ) {
-	idPlayer* player = gameLocal.GetLocalPlayer();
-	if ( player && player->CanBuy() )
-	{
+	//idPlayer* player = gameLocal.GetLocalPlayer();
+	//if ( player /* && player->CanBuy()*/)
+	//{
 		gameLocal.mpGame.OpenLocalBuyMenu();
-	}
+	//}
 }
 
 void Cmd_BuyItem_f( const idCmdArgs& args ) {
@@ -3229,7 +3229,7 @@ void idGameLocal::InitConsoleCommands( void ) {
 // RAVEN END
 // RITUAL START
 // squirrel: Mode-agnostic buymenus
-	cmdSystem->AddCommand( "buyMenu",				Cmd_ToggleBuyMenu_f,		CMD_FL_GAME,				"Toggle buy menu (if in a buy zone and the game type supports it)" );
+	cmdSystem->AddCommand( "buyMenu",				Cmd_ToggleBuyMenu_f, CMD_FL_GAME | CMD_FL_CHEAT, "Toggle buy menu (if in a buy zone and the game type supports it)" );
 	cmdSystem->AddCommand( "buy",					Cmd_BuyItem_f,				CMD_FL_GAME,				"Buy an item (if in a buy zone and the game type supports it)" );
 // RITUAL END
 

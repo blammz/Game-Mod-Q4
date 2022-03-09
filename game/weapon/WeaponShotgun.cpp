@@ -163,9 +163,10 @@ stateResult_t rvWeaponShotgun::State_Fire( const stateParms_t& parms ) {
 	};	
 	switch ( parms.stage ) {
 		case STAGE_INIT:
-			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));
-			Attack( false, hitscans, spread, 0, 1.0f );
-			PlayAnim( ANIMCHANNEL_ALL, "fire", 0 );	
+			nextAttackTime = gameLocal.time + (0);
+			Attack( false, 100, 20, 0, 2.0f );
+			AddToClip(1);
+			//PlayAnim( ANIMCHANNEL_ALL, "fire", 0 );	
 			return SRESULT_STAGE( STAGE_WAIT );
 	
 		case STAGE_WAIT:
@@ -214,19 +215,19 @@ stateResult_t rvWeaponShotgun::State_Reload ( const stateParms_t& parms ) {
 			SetStatus ( WP_RELOAD );
 			
 			if ( mods & SHOTGUN_MOD_AMMO ) {				
-				PlayAnim ( ANIMCHANNEL_ALL, "reload_clip", parms.blendFrames );
+				//PlayAnim ( ANIMCHANNEL_ALL, "reload_clip", parms.blendFrames );
 			} else {
-				PlayAnim ( ANIMCHANNEL_ALL, "reload_start", parms.blendFrames );
+				//PlayAnim ( ANIMCHANNEL_ALL, "reload_start", parms.blendFrames );
 				return SRESULT_STAGE ( STAGE_RELOADSTARTWAIT );
 			}
 			return SRESULT_STAGE ( STAGE_WAIT );
 			
 		case STAGE_WAIT:
-			if ( AnimDone ( ANIMCHANNEL_ALL, 4 ) ) {
+			//if ( AnimDone ( ANIMCHANNEL_ALL, 4 ) ) {
 				AddToClip ( ClipSize() );
 				SetState ( "Idle", 4 );
 				return SRESULT_DONE;
-			}
+			//}
 			if ( wsfl.lowerWeapon ) {
 				SetState ( "Lower", 4 );
 				return SRESULT_DONE;
@@ -244,11 +245,11 @@ stateResult_t rvWeaponShotgun::State_Reload ( const stateParms_t& parms ) {
 			return SRESULT_WAIT;
 			
 		case STAGE_RELOADLOOP:		
-			if ( (wsfl.attack && AmmoInClip() ) || AmmoAvailable ( ) <= AmmoInClip ( ) || AmmoInClip() == ClipSize() ) {
+			//if ( (wsfl.attack && AmmoInClip() ) || AmmoAvailable ( ) <= AmmoInClip ( ) || AmmoInClip() == ClipSize() ) {
 				return SRESULT_STAGE ( STAGE_RELOADDONE );
-			}
-			PlayAnim ( ANIMCHANNEL_ALL, "reload_loop", 0 );
-			return SRESULT_STAGE ( STAGE_RELOADLOOPWAIT );
+			//}
+			//PlayAnim ( ANIMCHANNEL_ALL, "reload_loop", 0 );
+			//return SRESULT_STAGE ( STAGE_RELOADLOOPWAIT );
 			
 		case STAGE_RELOADLOOPWAIT:
 			if ( (wsfl.attack && AmmoInClip() ) || wsfl.netEndReload ) {
