@@ -10,8 +10,9 @@ Bloops is the mod folder
 Copy that into your game folder and run Quake 4
 Then select bloops from the mod selection in Quake 4.
 
+Tot: 4/10 ;(
 Common:
-Github ReadMe X
+Github ReadMe Done
 
 Hud Changes Done 
 
