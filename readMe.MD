@@ -6,13 +6,15 @@ CLone this repository
 compile this file 
 q4sdk.sln 
 
+
 Bloops is the mod folder
 Copy that into your game folder and run Quake 4
 Then select bloops from the mod selection in Quake 4.
 
+Deliverables: 
 Tot: 4/10 ;(
 
-Common:
+Common Delivs:
 
 Github ReadMe Done
 
