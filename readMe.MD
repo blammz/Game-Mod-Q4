@@ -11,18 +11,23 @@ Copy that into your game folder and run Quake 4
 Then select bloops from the mod selection in Quake 4.
 
 Common:
-Github ReadMe
-Hud Changes
-Main Menu guis changes
-Shortcut to launch game
-Help menu
+Github ReadMe X
+
+Hud Changes Done 
+
+Main Menu guis changes Done
+
+Shortcut to launch game Done
+
+Help menu X
+
 Personal:
-First: Resource gathering structures
+First: Resource gathering structures X
 
-Second: Army combat system
+Second: Army combat system X
 
-Third: 5 spells that can impact that combat
+Third: 5 spells that can impact that combat X
 
-Fourth: 5 different unit types
+Fourth: 5 different unit types X 
 
-Fifth: Campaign Trail/Map
+Fifth: Campaign Trail/Map X 
